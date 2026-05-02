@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 
 const YOUTUBE_API_KEY = process.env.NEXT_PUBLIC_YOUTUBE_API_KEY;
-const PLAYLIST_ID = "PLj18l2tHjjUTm3P_rapT7NRlbJb26PyGt"; // Zero to Hero: AI Fundamentals
+const PLAYLIST_ID = "PLj18l2tHjjURzrOgCZC3Lxa92lV9QJxhp"; // Building in Public
 
 const RECENT_COUNT = 4; // how many "latest" rows to show beneath the hero
 
@@ -16,9 +16,9 @@ interface Episode {
 
 // Fallback data in case API call fails
 const fallbackEpisodes: Episode[] = [
-  { num: 1, title: "What Is AI, Really?", videoId: "" },
-  { num: 2, title: "AI vs. Machine Learning vs. Deep Learning", videoId: "" },
-  { num: 3, title: "How Does a Computer Actually Learn?", videoId: "" },
+  { num: 3, title: "Building in Public — Episode 3", videoId: "" },
+  { num: 2, title: "Building in Public — Episode 2", videoId: "" },
+  { num: 1, title: "Building in Public — Episode 1", videoId: "" },
 ];
 
 function watchUrl(videoId: string) {
@@ -104,47 +104,47 @@ export default function Series() {
   }, []);
 
   const totalEpisodes = episodes.length;
-  const startHere = episodes.find((ep) => ep.num === 1);
-  const recent = episodes.slice(0, RECENT_COUNT);
-  const olderCount = Math.max(0, totalEpisodes - RECENT_COUNT - (startHere ? 1 : 0));
+  const latest = episodes[0];
+  const recent = episodes.slice(1, RECENT_COUNT + 1);
+  const olderCount = Math.max(0, totalEpisodes - 1 - recent.length);
 
   return (
     <section id="series" className="py-24 md:py-32 bg-[#0a0a14]">
       <div className="max-w-4xl mx-auto px-6">
         <p className="text-[#64ffda] text-sm font-medium tracking-[0.2em] uppercase mb-6">
-          Free Series
+          Weekly Series
         </p>
 
         <h2 className="text-3xl md:text-4xl font-light mb-4">
-          Zero to Hero: AI Fundamentals
+          Cadmus Lab: Building in Public
         </h2>
 
         <p className="text-[#b4b4cc] text-lg mb-12 max-w-2xl">
-          No jargon. No prerequisites. A complete beginner&apos;s guide to
-          understanding AI &mdash; from &quot;what is this?&quot; to building
-          your first workflow. {totalEpisodes} episodes and counting.
+          The Cadmus Lab build log &mdash; apps, agents, business decisions, and
+          everything in between. Watch real products come together in real time,
+          mistakes and all. {totalEpisodes} {totalEpisodes === 1 ? "episode" : "episodes"} and counting.
         </p>
 
-        {/* ============ START HERE — pinned EP 01 ============ */}
-        {startHere && (
+        {/* ============ LATEST EPISODE — pinned ============ */}
+        {latest && (
           <a
-            href={watchUrl(startHere.videoId)}
+            href={watchUrl(latest.videoId)}
             target="_blank"
             rel="noopener noreferrer"
             className="series-hero group grid md:grid-cols-[1.4fr_1fr] gap-8 items-stretch mb-14 border border-white/[0.08] p-[18px] no-underline text-inherit hover:border-white/[0.15] transition-colors"
           >
             <div className="relative aspect-video overflow-hidden border border-white/[0.08] bg-[#14142a]">
-              {startHere.videoId && (
+              {latest.videoId && (
                 /* eslint-disable-next-line @next/next/no-img-element */
                 <img
-                  src={thumbUrl(startHere.videoId)}
+                  src={thumbUrl(latest.videoId)}
                   alt=""
                   className="absolute inset-0 w-full h-full object-cover"
                   loading="lazy"
                 />
               )}
               <span className="absolute top-3 left-3 z-10 bg-black/70 text-[#64ffda] font-mono text-[11px] tracking-wider px-2 py-1 border border-[#64ffda]/30">
-                EP 01
+                EP {String(latest.num).padStart(2, "0")}
               </span>
               <span className="absolute inset-0 grid place-items-center z-10 transition-transform duration-200 group-hover:scale-105">
                 <PlayIcon size={72} />
@@ -153,21 +153,20 @@ export default function Series() {
 
             <div className="flex flex-col justify-center px-2 md:pl-4">
               <div className="text-[#64ffda] font-mono text-[11px] tracking-[0.25em] uppercase mb-3">
-                Start here →
+                Latest episode →
               </div>
               <h3 className="text-2xl font-normal text-white mb-2 leading-tight">
-                {startHere.title}
+                {latest.title}
               </h3>
               <p className="text-[#b4b4cc] text-sm leading-relaxed mb-5">
-                The first episode. A short reset on what AI actually is, what it
-                isn&apos;t, and why the next {Math.max(0, totalEpisodes - 1)}{" "}
-                episodes will make sense in that order.
+                Hot off the press. The newest entry in the Cadmus Lab build log
+                &mdash; what shipped, what broke, and what&apos;s next.
               </p>
               <span className="self-start bg-[#64ffda] text-black font-medium text-[13px] tracking-[0.12em] uppercase px-6 py-3 transition-colors group-hover:bg-white">
-                Start the series
+                Watch the latest
               </span>
               <div className="mt-3 text-[#b4b4cc]/50 font-mono text-xs">
-                EP 01 of {totalEpisodes}
+                EP {String(latest.num).padStart(2, "0")} of {totalEpisodes}
               </div>
             </div>
           </a>

@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useRef } from "react";
 
@@ -11,8 +10,6 @@ type Project = {
   tech: string[];
   status: "Live" | "In Development" | "Coming Soon";
   href: string | null;
-  /** Optional product screenshot for the hover preview thumbnail. */
-  preview?: string;
   /** Mono-style slug shown in the card footer. */
   slug: string;
   waitlistUrl?: string | null;
@@ -28,7 +25,6 @@ const projects: Project[] = [
     status: "Live",
     href: "/orderly",
     slug: "orderly",
-    preview: undefined, // drop a screenshot path here, e.g. "/orderly/preview.png"
     waitlistUrl: null,
   },
   {
@@ -40,7 +36,6 @@ const projects: Project[] = [
     status: "Live",
     href: "/decipher",
     slug: "decipher",
-    preview: undefined, // e.g. "/decipher/preview.png"
     waitlistUrl: null,
   },
 ];
@@ -176,33 +171,6 @@ function ProjectCard({ project }: { project: Project }) {
           </span>
         </div>
       )}
-
-      {/* hover preview thumbnail */}
-      <div className="preview" aria-hidden="true">
-        {project.preview ? (
-          <Image
-            src={project.preview}
-            alt=""
-            fill
-            sizes="160px"
-            className="object-cover"
-          />
-        ) : (
-          <>
-            <div className="pv-bar">
-              <i />
-              <i />
-              <i />
-            </div>
-            <div className="pv-body">
-              <div className="pv-row" />
-              <div className="pv-row m" />
-              <div className="pv-row s" />
-              <div className="pv-row xs" />
-            </div>
-          </>
-        )}
-      </div>
     </div>
   );
 
