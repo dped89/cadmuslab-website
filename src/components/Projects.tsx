@@ -1,7 +1,24 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
+import { useEffect, useRef } from "react";
 
-const projects = [
+type Project = {
+  name: string;
+  subtitle: string;
+  description: string;
+  tech: string[];
+  status: "Live" | "In Development" | "Coming Soon";
+  href: string | null;
+  /** Optional product screenshot for the hover preview thumbnail. */
+  preview?: string;
+  /** Mono-style slug shown in the card footer. */
+  slug: string;
+  waitlistUrl?: string | null;
+};
+
+const projects: Project[] = [
   {
     name: "Orderly",
     subtitle: "Beverage Order Management",
@@ -10,6 +27,8 @@ const projects = [
     tech: ["React", "Express", "PostgreSQL"],
     status: "Live",
     href: "/orderly",
+    slug: "orderly",
+    preview: undefined, // drop a screenshot path here, e.g. "/orderly/preview.png"
     waitlistUrl: null,
   },
   {
@@ -20,6 +39,8 @@ const projects = [
     tech: ["React Native", "Expo", "Gutenberg API"],
     status: "Live",
     href: "/decipher",
+    slug: "decipher",
+    preview: undefined, // e.g. "/decipher/preview.png"
     waitlistUrl: null,
   },
 ];
@@ -42,78 +63,154 @@ export default function Projects() {
         </p>
 
         <div className="grid md:grid-cols-2 gap-8">
-          {projects.map((project) => {
-            const card = (
-              <div
-                key={project.name}
-                className="border border-white/[0.08] p-8 hover:border-white/20 transition-colors group flex flex-col"
-              >
-                <div className="flex items-center justify-between mb-4">
-                  <h3 className="text-2xl font-medium text-white">
-                    {project.name}
-                  </h3>
-                  <span
-                    className={`text-xs border px-2 py-0.5 uppercase tracking-wider ${
-                      project.status === "Live"
-                        ? "text-[#64ffda] border-[#64ffda]/30"
-                        : "text-[#b4b4cc]/50 border-white/10"
-                    }`}
-                  >
-                    {project.status}
-                  </span>
-                </div>
-                <p className="text-sm text-[#64ffda]/70 mb-4">
-                  {project.subtitle}
-                </p>
-                <p className="text-[#b4b4cc] leading-relaxed mb-6 flex-1">
-                  {project.description}
-                </p>
-                <div className="flex flex-wrap gap-2 mb-6">
-                  {project.tech.map((t) => (
-                    <span
-                      key={t}
-                      className="text-xs text-[#b4b4cc]/60 border border-white/[0.06] px-2 py-1"
-                    >
-                      {t}
-                    </span>
-                  ))}
-                </div>
-                {project.waitlistUrl && (
-                  <a
-                    href={project.waitlistUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 text-sm font-medium text-[#0a0a14] bg-[#64ffda] px-5 py-2.5 hover:bg-[#64ffda]/90 transition-colors tracking-wide uppercase mt-auto"
-                  >
-                    Join the Waitlist
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="14"
-                      height="14"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    >
-                      <path d="M7 17l9.2-9.2M17 17V7H7" />
-                    </svg>
-                  </a>
-                )}
-              </div>
-            );
-
-            return project.href ? (
-              <Link key={project.name} href={project.href} className="block">
-                {card}
-              </Link>
-            ) : (
-              <div key={project.name}>{card}</div>
-            );
-          })}
+          {projects.map((project) => (
+            <ProjectCard key={project.name} project={project} />
+          ))}
         </div>
       </div>
     </section>
+  );
+}
+
+function ProjectCard({ project }: { project: Project }) {
+  const ref = useRef<HTMLDivElement | null>(null);
+  const rafRef = useRef<number | null>(null);
+
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    if (typeof window === "undefined") return;
+    if (!window.matchMedia("(hover: hover)").matches) return;
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+
+    const onMove = (e: PointerEvent) => {
+      const r = el.getBoundingClientRect();
+      const x = ((e.clientX - r.left) / r.width) * 100;
+      const y = ((e.clientY - r.top) / r.height) * 100;
+      el.style.setProperty("--tx", `${x}%`);
+      el.style.setProperty("--ty", `${y}%`);
+      const rx = ((y - 50) / 50) * -3;
+      const ry = ((x - 50) / 50) * 4;
+      if (rafRef.current) cancelAnimationFrame(rafRef.current);
+      rafRef.current = requestAnimationFrame(() => {
+        el.style.transform = `translateY(-2px) rotateX(${rx.toFixed(
+          2
+        )}deg) rotateY(${ry.toFixed(2)}deg)`;
+      });
+    };
+    const onLeave = () => {
+      if (rafRef.current) cancelAnimationFrame(rafRef.current);
+      el.style.transform = "";
+    };
+
+    el.addEventListener("pointermove", onMove);
+    el.addEventListener("pointerleave", onLeave);
+    return () => {
+      el.removeEventListener("pointermove", onMove);
+      el.removeEventListener("pointerleave", onLeave);
+      if (rafRef.current) cancelAnimationFrame(rafRef.current);
+    };
+  }, []);
+
+  const inner = (
+    <div ref={ref} className="pcard">
+      <div className="flex items-center justify-between mb-4">
+        <h3 className="text-2xl font-medium text-white">{project.name}</h3>
+        <span
+          className={`text-[11px] tracking-[0.16em] uppercase px-2 py-0.5 inline-flex items-center gap-2 font-mono ${
+            project.status === "Live"
+              ? "text-[#64ffda] border border-[#64ffda]/30"
+              : "text-[#b4b4cc]/60 border border-white/10"
+          }`}
+        >
+          {project.status === "Live" && <span className="live-dot" />}
+          {project.status}
+        </span>
+      </div>
+
+      <p className="text-sm text-[#64ffda]/70 mb-4">{project.subtitle}</p>
+
+      <p className="text-[#b4b4cc] leading-relaxed mb-6">
+        {project.description}
+      </p>
+
+      <div className="flex flex-wrap gap-2 mb-6">
+        {project.tech.map((t) => (
+          <span
+            key={t}
+            className="text-xs text-[#b4b4cc]/65 border border-white/[0.06] px-2 py-1 transition-colors duration-300 group-hover:text-[#b4b4cc]/95 group-hover:border-white/20"
+          >
+            {t}
+          </span>
+        ))}
+      </div>
+
+      {project.waitlistUrl ? (
+        <a
+          href={project.waitlistUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex items-center gap-2 text-sm font-medium text-[#0a0a14] bg-[#64ffda] px-5 py-2.5 hover:bg-[#64ffda]/90 transition-colors tracking-wide uppercase mt-auto"
+          onClick={(e) => e.stopPropagation()}
+        >
+          Join the Waitlist
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="14"
+            height="14"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          >
+            <path d="M7 17l9.2-9.2M17 17V7H7" />
+          </svg>
+        </a>
+      ) : (
+        <div className="flex items-center justify-between font-mono text-[11px] tracking-[0.18em] uppercase text-[#b4b4cc]/50">
+          <span>{project.slug}</span>
+          <span className="cta text-[#64ffda] inline-flex items-center gap-1.5">
+            View case study →
+          </span>
+        </div>
+      )}
+
+      {/* hover preview thumbnail */}
+      <div className="preview" aria-hidden="true">
+        {project.preview ? (
+          <Image
+            src={project.preview}
+            alt=""
+            fill
+            sizes="160px"
+            className="object-cover"
+          />
+        ) : (
+          <>
+            <div className="pv-bar">
+              <i />
+              <i />
+              <i />
+            </div>
+            <div className="pv-body">
+              <div className="pv-row" />
+              <div className="pv-row m" />
+              <div className="pv-row s" />
+              <div className="pv-row xs" />
+            </div>
+          </>
+        )}
+      </div>
+    </div>
+  );
+
+  return project.href ? (
+    <Link href={project.href} className="block group">
+      {inner}
+    </Link>
+  ) : (
+    <div className="group">{inner}</div>
   );
 }
