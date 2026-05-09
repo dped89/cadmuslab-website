@@ -73,12 +73,13 @@ export default function Series() {
         if (!res.ok) throw new Error("API request failed");
         const data = await res.json();
 
-        const seen = new Set<number>();
+        const seenIds = new Set<string>();
         const items: Episode[] = data.items
           .filter((item: any) => item.snippet.title !== "Private video")
           .map((item: any) => {
             const fullTitle = item.snippet.title;
-            const epMatch = fullTitle.match(/EP\s*(\d+)/i);
+            // Lenient match: EP1, EP 1, EP.1, EP#01, Ep01, Episode 4
+            const epMatch = fullTitle.match(/\bEP(?:isode)?\.?\s*#?\s*0*(\d+)/i);
             const epNum = epMatch ? parseInt(epMatch[1], 10) : 0;
             const title = fullTitle.replace(/\s*\|.*$/, "").trim();
             return {
@@ -89,11 +90,17 @@ export default function Series() {
             };
           })
           .filter((ep: Episode) => {
-            if (ep.num === 0 || seen.has(ep.num)) return false;
-            seen.add(ep.num);
+            if (!ep.videoId || seenIds.has(ep.videoId)) return false;
+            seenIds.add(ep.videoId);
             return true;
           })
-          .sort((a: Episode, b: Episode) => b.num - a.num); // descending — newest first
+          // Sort by upload date (newest first) — most reliable "latest" signal,
+          // independent of however episodes are titled.
+          .sort((a: Episode, b: Episode) => {
+            const aTime = a.publishedAt ? new Date(a.publishedAt).getTime() : 0;
+            const bTime = b.publishedAt ? new Date(b.publishedAt).getTime() : 0;
+            return bTime - aTime;
+          });
 
         if (items.length > 0) setEpisodes(items);
       } catch {
@@ -131,9 +138,9 @@ export default function Series() {
             href={watchUrl(latest.videoId)}
             target="_blank"
             rel="noopener noreferrer"
-            className="series-hero group grid md:grid-cols-[1.4fr_1fr] gap-8 items-stretch mb-14 border border-white/[0.08] p-[18px] no-underline text-inherit hover:border-white/[0.15] transition-colors"
+            className="series-hero group grid md:grid-cols-[1.4fr_1fr] gap-8 items-center mb-14 border border-white/[0.08] p-[18px] no-underline text-inherit hover:border-white/[0.15] transition-colors"
           >
-            <div className="relative aspect-video overflow-hidden border border-white/[0.08] bg-[#14142a]">
+            <div className="relative aspect-video w-full min-w-0 overflow-hidden border border-white/[0.08] bg-[#14142a]">
               {latest.videoId && (
                 /* eslint-disable-next-line @next/next/no-img-element */
                 <img
