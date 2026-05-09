@@ -106,9 +106,15 @@ export default function Series() {
             seenIds.add(ep.videoId);
             return true;
           })
-          // Sort by upload date (newest first) — independent of title format
-          // or playlist insertion order.
+          // Sort: EP number first (the user-controlled chronological signal),
+          // then upload date as a fallback for any unnumbered videos.
+          // videoPublishedAt alone isn't reliable because unlisted-then-public
+          // videos keep their original upload timestamp, which can pre-date
+          // newer publicly-visible episodes.
           .sort((a: Episode, b: Episode) => {
+            if (a.num > 0 && b.num > 0 && a.num !== b.num) return b.num - a.num;
+            if (a.num > 0 && b.num === 0) return -1;
+            if (a.num === 0 && b.num > 0) return 1;
             const aTime = a.publishedAt ? new Date(a.publishedAt).getTime() : 0;
             const bTime = b.publishedAt ? new Date(b.publishedAt).getTime() : 0;
             return bTime - aTime;
