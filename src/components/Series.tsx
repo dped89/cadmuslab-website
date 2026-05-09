@@ -11,6 +11,7 @@ interface Episode {
   num: number;
   title: string;
   videoId: string;
+  /** Time the video was uploaded to YouTube (not when added to the playlist). */
   publishedAt?: string;
 }
 
@@ -68,14 +69,17 @@ export default function Series() {
       if (!YOUTUBE_API_KEY) return;
       try {
         const res = await fetch(
-          `https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&playlistId=${PLAYLIST_ID}&maxResults=50&key=${YOUTUBE_API_KEY}`
+          `https://www.googleapis.com/youtube/v3/playlistItems?part=snippet,contentDetails&playlistId=${PLAYLIST_ID}&maxResults=50&key=${YOUTUBE_API_KEY}`
         );
         if (!res.ok) throw new Error("API request failed");
         const data = await res.json();
 
         const seenIds = new Set<string>();
         const items: Episode[] = data.items
-          .filter((item: any) => item.snippet.title !== "Private video")
+          .filter((item: any) => {
+            const t = item.snippet?.title;
+            return t && t !== "Private video" && t !== "Deleted video";
+          })
           .map((item: any) => {
             const fullTitle = item.snippet.title;
             // Lenient match: EP1, EP 1, EP.1, EP#01, Ep01, Episode 4
@@ -85,8 +89,16 @@ export default function Series() {
             return {
               num: epNum,
               title,
-              videoId: item.snippet.resourceId?.videoId || "",
-              publishedAt: item.snippet.publishedAt,
+              videoId:
+                item.contentDetails?.videoId ||
+                item.snippet.resourceId?.videoId ||
+                "",
+              // Use the video's actual upload time, not when it was added to the
+              // playlist. snippet.publishedAt would reorder if videos are added
+              // out of upload order.
+              publishedAt:
+                item.contentDetails?.videoPublishedAt ||
+                item.snippet.publishedAt,
             };
           })
           .filter((ep: Episode) => {
@@ -94,8 +106,8 @@ export default function Series() {
             seenIds.add(ep.videoId);
             return true;
           })
-          // Sort by upload date (newest first) — most reliable "latest" signal,
-          // independent of however episodes are titled.
+          // Sort by upload date (newest first) — independent of title format
+          // or playlist insertion order.
           .sort((a: Episode, b: Episode) => {
             const aTime = a.publishedAt ? new Date(a.publishedAt).getTime() : 0;
             const bTime = b.publishedAt ? new Date(b.publishedAt).getTime() : 0;
@@ -150,9 +162,11 @@ export default function Series() {
                   loading="lazy"
                 />
               )}
-              <span className="absolute top-3 left-3 z-10 bg-black/70 text-[#64ffda] font-mono text-[11px] tracking-wider px-2 py-1 border border-[#64ffda]/30">
-                EP {String(latest.num).padStart(2, "0")}
-              </span>
+              {latest.num > 0 && (
+                <span className="absolute top-3 left-3 z-10 bg-black/70 text-[#64ffda] font-mono text-[11px] tracking-wider px-2 py-1 border border-[#64ffda]/30">
+                  EP {String(latest.num).padStart(2, "0")}
+                </span>
+              )}
               <span className="absolute inset-0 grid place-items-center z-10 transition-transform duration-200 group-hover:scale-105">
                 <PlayIcon size={72} />
               </span>
@@ -173,7 +187,9 @@ export default function Series() {
                 Watch the latest
               </span>
               <div className="mt-3 text-[#b4b4cc]/50 font-mono text-xs">
-                EP {String(latest.num).padStart(2, "0")} of {totalEpisodes}
+                {latest.num > 0
+                  ? `EP ${String(latest.num).padStart(2, "0")} of ${totalEpisodes}`
+                  : `Latest of ${totalEpisodes}`}
               </div>
             </div>
           </a>
@@ -187,7 +203,7 @@ export default function Series() {
         <div className="grid gap-2.5">
           {recent.map((ep) => (
             <a
-              key={ep.num}
+              key={ep.videoId || ep.num}
               href={watchUrl(ep.videoId)}
               target="_blank"
               rel="noopener noreferrer"
@@ -203,9 +219,11 @@ export default function Series() {
                     loading="lazy"
                   />
                 )}
-                <span className="absolute top-1.5 left-1.5 z-10 bg-black/70 text-[#64ffda] font-mono text-[9px] tracking-wider px-1.5 py-0.5 border border-[#64ffda]/30">
-                  EP {String(ep.num).padStart(2, "0")}
-                </span>
+                {ep.num > 0 && (
+                  <span className="absolute top-1.5 left-1.5 z-10 bg-black/70 text-[#64ffda] font-mono text-[9px] tracking-wider px-1.5 py-0.5 border border-[#64ffda]/30">
+                    EP {String(ep.num).padStart(2, "0")}
+                  </span>
+                )}
                 <span className="absolute inset-0 grid place-items-center z-10">
                   <PlayIcon size={28} />
                 </span>
@@ -213,7 +231,7 @@ export default function Series() {
 
               <div className="min-w-0">
                 <div className="text-[#64ffda] font-mono text-[11px] tracking-wider mb-1 uppercase">
-                  EP {String(ep.num).padStart(2, "0")}
+                  {ep.num > 0 ? `EP ${String(ep.num).padStart(2, "0")}` : "Latest"}
                   {ep.publishedAt && (
                     <span className="text-[#b4b4cc]/50 ml-2">
                       · {relativeTime(ep.publishedAt)}
@@ -232,7 +250,7 @@ export default function Series() {
           ))}
         </div>
 
-        <div className="mt-9 flex items-center gap-4 flex-wrap">
+        <div className="mt-9 flex items-center justify-center gap-4 flex-wrap text-center">
           <a
             href={`https://www.youtube.com/playlist?list=${PLAYLIST_ID}`}
             target="_blank"
