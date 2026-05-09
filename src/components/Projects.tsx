@@ -167,7 +167,7 @@ function ProjectCard({ project }: { project: Project }) {
         <div className="flex items-center justify-between font-mono text-[11px] tracking-[0.18em] uppercase text-[#b4b4cc]/50">
           <span>{project.slug}</span>
           <span className="cta text-[#64ffda] inline-flex items-center gap-1.5">
-            View case study →
+            View project →
           </span>
         </div>
       )}
