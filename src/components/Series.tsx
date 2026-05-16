@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 
 const YOUTUBE_API_KEY = process.env.NEXT_PUBLIC_YOUTUBE_API_KEY;
-const PLAYLIST_ID = "PLj18l2tHjjURzrOgCZC3Lxa92lV9QJxhp"; // Building in Public
+const PLAYLIST_ID = "PLj18l2tHjjUSZy_snj006tlQ520BIT7Ea"; // Weekly Videos (curated long-form, all series)
 
 const RECENT_COUNT = 4; // how many "latest" rows to show beneath the hero
 
@@ -17,9 +17,11 @@ interface Episode {
 
 // Fallback data in case API call fails
 const fallbackEpisodes: Episode[] = [
-  { num: 3, title: "Building in Public — Episode 3", videoId: "" },
-  { num: 2, title: "Building in Public — Episode 2", videoId: "" },
-  { num: 1, title: "Building in Public — Episode 1", videoId: "" },
+  { num: 5, title: "Weekly Videos — Episode 5", videoId: "" },
+  { num: 4, title: "Weekly Videos — Episode 4", videoId: "" },
+  { num: 3, title: "Weekly Videos — Episode 3", videoId: "" },
+  { num: 2, title: "Weekly Videos — Episode 2", videoId: "" },
+  { num: 1, title: "Weekly Videos — Episode 1", videoId: "" },
 ];
 
 function watchUrl(videoId: string) {
@@ -137,17 +139,17 @@ export default function Series() {
     <section id="series" className="py-24 md:py-32 bg-[#0a0a14]">
       <div className="max-w-4xl mx-auto px-6">
         <p className="text-[#64ffda] text-sm font-medium tracking-[0.2em] uppercase mb-6">
-          Weekly Series
+          Weekly Videos
         </p>
 
         <h2 className="text-3xl md:text-4xl font-light mb-4">
-          Cadmus Lab: Building in Public
+          New from Cadmus Lab.
         </h2>
 
         <p className="text-[#b4b4cc] text-lg mb-12 max-w-2xl">
-          The Cadmus Lab build log &mdash; apps, agents, business decisions, and
-          everything in between. Watch real products come together in real time,
-          mistakes and all. {totalEpisodes} {totalEpisodes === 1 ? "episode" : "episodes"} and counting.
+          Building in public, AI workflows by role, and the in-between work that
+          goes into shipping real software. A new long-form video, every week.
+          {" "}{totalEpisodes} {totalEpisodes === 1 ? "video" : "videos"} and counting.
         </p>
 
         {/* ============ LATEST EPISODE — pinned ============ */}
@@ -186,8 +188,7 @@ export default function Series() {
                 {latest.title}
               </h3>
               <p className="text-[#b4b4cc] text-sm leading-relaxed mb-5">
-                Hot off the press. The newest entry in the Cadmus Lab build log
-                &mdash; what shipped, what broke, and what&apos;s next.
+                Hot off the press. The newest long-form video from Cadmus Lab.
               </p>
               <span className="self-start bg-[#64ffda] text-black font-medium text-[13px] tracking-[0.12em] uppercase px-6 py-3 transition-colors group-hover:bg-white">
                 Watch the latest
