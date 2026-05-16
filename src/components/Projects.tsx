@@ -42,17 +42,28 @@ const projects: Project[] = [
 
 export default function Projects() {
   return (
-    <section id="projects" className="py-24 md:py-32 bg-[#0a0a14]">
+    <section
+      id="projects"
+      className="py-24 md:py-32 bg-white text-slate-900"
+      style={{
+        // Override CSS vars used by .pcard so cards render light-themed
+        // when this section's background is white.
+        ["--background" as string]: "#ffffff",
+        ["--border" as string]: "rgba(15, 23, 42, 0.1)",
+        ["--accent" as string]: "#0d9488",
+        ["--accent-dim" as string]: "rgba(13, 148, 136, 0.15)",
+      }}
+    >
       <div className="max-w-4xl mx-auto px-6">
-        <p className="text-[#64ffda] text-sm font-medium tracking-[0.2em] uppercase mb-6">
+        <p className="text-[#0d9488] text-sm font-medium tracking-[0.2em] uppercase mb-6">
           Projects
         </p>
 
-        <h2 className="text-3xl md:text-4xl font-light mb-4">
+        <h2 className="text-3xl md:text-4xl font-light mb-4 text-slate-900">
           Real products. Built with AI. Deployed to production.
         </h2>
 
-        <p className="text-[#b4b4cc] text-lg mb-12 max-w-2xl">
+        <p className="text-slate-600 text-lg mb-12 max-w-2xl">
           These aren&apos;t demos or tutorials — they&apos;re real software solving real
           problems for real users.
         </p>
@@ -110,12 +121,12 @@ function ProjectCard({ project }: { project: Project }) {
   const inner = (
     <div ref={ref} className="pcard">
       <div className="flex items-center justify-between mb-4">
-        <h3 className="text-2xl font-medium text-white">{project.name}</h3>
+        <h3 className="text-2xl font-medium text-slate-900">{project.name}</h3>
         <span
           className={`text-[11px] tracking-[0.16em] uppercase px-2 py-0.5 inline-flex items-center gap-2 font-mono ${
             project.status === "Live"
-              ? "text-[#64ffda] border border-[#64ffda]/30"
-              : "text-[#b4b4cc]/60 border border-white/10"
+              ? "text-[#0d9488] border border-[#0d9488]/40"
+              : "text-slate-500 border border-slate-300"
           }`}
         >
           {project.status === "Live" && <span className="live-dot" />}
@@ -123,9 +134,9 @@ function ProjectCard({ project }: { project: Project }) {
         </span>
       </div>
 
-      <p className="text-sm text-[#64ffda]/70 mb-4">{project.subtitle}</p>
+      <p className="text-sm text-[#0d9488] mb-4">{project.subtitle}</p>
 
-      <p className="text-[#b4b4cc] leading-relaxed mb-6">
+      <p className="text-slate-600 leading-relaxed mb-6">
         {project.description}
       </p>
 
@@ -133,7 +144,7 @@ function ProjectCard({ project }: { project: Project }) {
         {project.tech.map((t) => (
           <span
             key={t}
-            className="text-xs text-[#b4b4cc]/65 border border-white/[0.06] px-2 py-1 transition-colors duration-300 group-hover:text-[#b4b4cc]/95 group-hover:border-white/20"
+            className="text-xs text-slate-500 border border-slate-200 px-2 py-1 transition-colors duration-300 group-hover:text-slate-700 group-hover:border-slate-300"
           >
             {t}
           </span>
@@ -164,9 +175,9 @@ function ProjectCard({ project }: { project: Project }) {
           </svg>
         </a>
       ) : (
-        <div className="flex items-center justify-between font-mono text-[11px] tracking-[0.18em] uppercase text-[#b4b4cc]/50">
+        <div className="flex items-center justify-between font-mono text-[11px] tracking-[0.18em] uppercase text-slate-500">
           <span>{project.slug}</span>
-          <span className="cta text-[#64ffda] inline-flex items-center gap-1.5">
+          <span className="cta text-[#0d9488] inline-flex items-center gap-1.5">
             View project →
           </span>
         </div>

@@ -46,7 +46,7 @@ export default function DecipherPage() {
   return (
     <main className="min-h-screen bg-[#1A1A2E] text-[#E8E8F0]">
       {/* Nav */}
-      <nav className="fixed top-0 left-0 right-0 z-50 backdrop-blur-md bg-[#1A1A2E]/80 border-b border-white/[0.08]">
+      <nav className="fixed top-0 left-0 right-0 z-50 backdrop-blur-md bg-white/95 border-b border-slate-200">
         <div className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
           <Link href="/" className="flex items-center gap-3 group">
             <Image
@@ -55,20 +55,20 @@ export default function DecipherPage() {
               width={48}
               height={48}
             />
-            <span className="text-white font-light tracking-[0.3em] text-sm uppercase">
+            <span className="text-black font-light tracking-[0.3em] text-sm uppercase">
               Cadmus Lab
             </span>
           </Link>
-          <div className="hidden md:flex items-center gap-8 text-sm text-[#8888AA]">
+          <div className="hidden md:flex items-center gap-8 text-sm text-slate-600">
             <Link
               href="/"
-              className="hover:text-white transition-colors"
+              className="hover:text-black transition-colors"
             >
               Home
             </Link>
             <a
               href="#download"
-              className="text-[#00D4FF] hover:text-white transition-colors"
+              className="text-[#0891b2] hover:text-[#0e7490] transition-colors"
             >
               Download
             </a>
@@ -150,15 +150,15 @@ export default function DecipherPage() {
       </section>
 
       {/* Problem */}
-      <section className="py-24 px-6 bg-[#151528]">
+      <section className="py-24 px-6 bg-white text-slate-900">
         <div className="max-w-4xl mx-auto">
-          <p className="text-sm font-medium tracking-[0.2em] text-[#00D4FF] uppercase mb-6">
+          <p className="text-sm font-medium tracking-[0.2em] text-[#0891b2] uppercase mb-6">
             The Problem
           </p>
-          <h2 className="text-3xl md:text-4xl font-light mb-8">
+          <h2 className="text-3xl md:text-4xl font-light mb-8 text-slate-900">
             Language apps teach you to swipe. Not to read.
           </h2>
-          <div className="space-y-4 text-[#8888AA] text-lg leading-relaxed">
+          <div className="space-y-4 text-slate-600 text-lg leading-relaxed">
             <p>
               You&apos;ve kept a 200-day streak on a language app. You&apos;ve earned
               every badge. But you still can&apos;t read a menu, a news article, or
@@ -255,26 +255,26 @@ export default function DecipherPage() {
       </section>
 
       {/* How It Works */}
-      <section id="how-it-works" className="py-24 px-6 bg-[#151528]">
+      <section id="how-it-works" className="py-24 px-6 bg-white text-slate-900">
         <div className="max-w-4xl mx-auto">
-          <p className="text-sm font-medium tracking-[0.2em] text-[#00D4FF] uppercase mb-6">
+          <p className="text-sm font-medium tracking-[0.2em] text-[#0891b2] uppercase mb-6">
             How It Works
           </p>
-          <h2 className="text-3xl md:text-4xl font-light mb-12">
+          <h2 className="text-3xl md:text-4xl font-light mb-12 text-slate-900">
             Start reading in a new language in under a minute.
           </h2>
 
           <div className="space-y-16">
             <div className="flex flex-col md:flex-row gap-8 items-center">
               <div className="flex gap-6 flex-1">
-                <div className="text-[#00D4FF] text-2xl font-light shrink-0 w-8">
+                <div className="text-[#0891b2] text-2xl font-light shrink-0 w-8">
                   1
                 </div>
                 <div>
-                  <h3 className="text-xl font-medium mb-2">
+                  <h3 className="text-xl font-medium mb-2 text-slate-900">
                     Pick a book in your target language
                   </h3>
-                  <p className="text-[#8888AA] leading-relaxed">
+                  <p className="text-slate-600 leading-relaxed">
                     Browse or search Project Gutenberg&apos;s library by language.
                     Thousands of titles in Spanish, French, German, Japanese, and
                     more &mdash; all free, all real literature. Or import your own
@@ -282,7 +282,7 @@ export default function DecipherPage() {
                   </p>
                 </div>
               </div>
-              <div className="w-40 md:w-44 shrink-0 rounded-2xl overflow-hidden shadow-xl shadow-black/30">
+              <div className="w-40 md:w-44 shrink-0 rounded-2xl overflow-hidden shadow-xl shadow-slate-300/60">
                 <Image
                   src="/decipher/browse.jpg"
                   alt="Browse free books by language in Decipher"
@@ -295,21 +295,21 @@ export default function DecipherPage() {
 
             <div className="flex flex-col md:flex-row gap-8 items-center">
               <div className="flex gap-6 flex-1">
-                <div className="text-[#00D4FF] text-2xl font-light shrink-0 w-8">
+                <div className="text-[#0891b2] text-2xl font-light shrink-0 w-8">
                   2
                 </div>
                 <div>
-                  <h3 className="text-xl font-medium mb-2">
+                  <h3 className="text-xl font-medium mb-2 text-slate-900">
                     Read with live translation beside you
                   </h3>
-                  <p className="text-[#8888AA] leading-relaxed">
+                  <p className="text-slate-600 leading-relaxed">
                     The original text and English translation sit side by side.
                     Tap any word you don&apos;t know for an instant translation.
                     No app-switching, no broken flow.
                   </p>
                 </div>
               </div>
-              <div className="w-40 md:w-44 shrink-0 rounded-2xl overflow-hidden shadow-xl shadow-black/30">
+              <div className="w-40 md:w-44 shrink-0 rounded-2xl overflow-hidden shadow-xl shadow-slate-300/60">
                 <Image
                   src="/decipher/reading.jpg"
                   alt="Split-view reading with Spanish and English translation"
@@ -322,21 +322,21 @@ export default function DecipherPage() {
 
             <div className="flex flex-col md:flex-row gap-8 items-center">
               <div className="flex gap-6 flex-1">
-                <div className="text-[#00D4FF] text-2xl font-light shrink-0 w-8">
+                <div className="text-[#0891b2] text-2xl font-light shrink-0 w-8">
                   3
                 </div>
                 <div>
-                  <h3 className="text-xl font-medium mb-2">
+                  <h3 className="text-xl font-medium mb-2 text-slate-900">
                     Build your vocabulary naturally
                   </h3>
-                  <p className="text-[#8888AA] leading-relaxed">
+                  <p className="text-slate-600 leading-relaxed">
                     Every word you look up is saved automatically. Review with
                     flashcards, track your progress, and watch the number of
                     lookups drop as you read more. That&apos;s real learning.
                   </p>
                 </div>
               </div>
-              <div className="w-40 md:w-44 shrink-0 rounded-2xl overflow-hidden shadow-xl shadow-black/30">
+              <div className="w-40 md:w-44 shrink-0 rounded-2xl overflow-hidden shadow-xl shadow-slate-300/60">
                 <Image
                   src="/decipher/flashcards.jpg"
                   alt="Flashcard review with vocabulary from your reading"
@@ -375,82 +375,82 @@ export default function DecipherPage() {
       </section>
 
       {/* Free vs Premium */}
-      <section className="py-24 px-6 bg-[#151528]">
+      <section className="py-24 px-6 bg-white text-slate-900">
         <div className="max-w-4xl mx-auto">
-          <p className="text-sm font-medium tracking-[0.2em] text-[#00D4FF] uppercase mb-6">
+          <p className="text-sm font-medium tracking-[0.2em] text-[#0891b2] uppercase mb-6">
             Pricing
           </p>
-          <h2 className="text-3xl md:text-4xl font-light mb-4">
+          <h2 className="text-3xl md:text-4xl font-light mb-4 text-slate-900">
             No ads. No subscription. Ever.
           </h2>
-          <p className="text-[#8888AA] text-lg mb-12">
+          <p className="text-slate-600 text-lg mb-12">
             The free tier has everything you need to start learning. Premium
             removes all limits with a one-time purchase.
           </p>
 
           <div className="grid md:grid-cols-2 gap-8">
-            <div className="border border-white/[0.08] rounded-lg p-8">
-              <h3 className="text-xl font-medium mb-2">Free</h3>
-              <p className="text-[#00D4FF] text-3xl font-light mb-6">$0</p>
-              <ul className="space-y-3 text-[#8888AA]">
+            <div className="border border-slate-200 rounded-lg p-8 bg-white">
+              <h3 className="text-xl font-medium mb-2 text-slate-900">Free</h3>
+              <p className="text-[#0891b2] text-3xl font-light mb-6">$0</p>
+              <ul className="space-y-3 text-slate-600">
                 <li className="flex items-start gap-3">
-                  <span className="text-[#00D4FF] mt-1">&#10003;</span>
+                  <span className="text-[#0891b2] mt-1">&#10003;</span>
                   Full Project Gutenberg library
                 </li>
                 <li className="flex items-start gap-3">
-                  <span className="text-[#00D4FF] mt-1">&#10003;</span>
+                  <span className="text-[#0891b2] mt-1">&#10003;</span>
                   30 word translations per day
                 </li>
                 <li className="flex items-start gap-3">
-                  <span className="text-[#00D4FF] mt-1">&#10003;</span>
+                  <span className="text-[#0891b2] mt-1">&#10003;</span>
                   30 saved vocabulary words
                 </li>
                 <li className="flex items-start gap-3">
-                  <span className="text-[#00D4FF] mt-1">&#10003;</span>
+                  <span className="text-[#0891b2] mt-1">&#10003;</span>
                   Full-page translation
                 </li>
                 <li className="flex items-start gap-3">
-                  <span className="text-[#00D4FF] mt-1">&#10003;</span>
+                  <span className="text-[#0891b2] mt-1">&#10003;</span>
                   Flashcard review
                 </li>
                 <li className="flex items-start gap-3">
-                  <span className="text-[#00D4FF] mt-1">&#10003;</span>
+                  <span className="text-[#0891b2] mt-1">&#10003;</span>
                   3 text-to-speech reads per day
                 </li>
               </ul>
             </div>
 
-            <div className="border border-[#00D4FF]/30 rounded-lg p-8 relative">
-              <div className="absolute -top-3 left-6 bg-[#00D4FF] text-[#1A1A2E] text-xs font-bold tracking-wider uppercase px-3 py-1">
+            <div className="border-2 border-[#0891b2] rounded-lg p-8 relative bg-white">
+              <div className="absolute -top-3 left-6 bg-[#0891b2] text-white text-xs font-bold tracking-wider uppercase px-3 py-1 rounded">
                 One-Time Purchase
               </div>
-              <h3 className="text-xl font-medium mb-2">Premium</h3>
-              <p className="text-[#00D4FF] text-3xl font-light mb-6">
+              <h3 className="text-xl font-medium mb-2 text-slate-900">Premium</h3>
+              <p className="text-[#0891b2] text-3xl font-light mb-6">
                 $6.99
               </p>
-              <ul className="space-y-3 text-[#8888AA]">
+              <ul className="space-y-3 text-slate-600">
                 <li className="flex items-start gap-3">
-                  <span className="text-[#00D4FF] mt-1">&#10003;</span>
+                  <span className="text-[#0891b2] mt-1">&#10003;</span>
                   Everything in Free
                 </li>
                 <li className="flex items-start gap-3">
-                  <span className="text-[#00D4FF] mt-1">&#10003;</span>
+                  <span className="text-[#0891b2] mt-1">&#10003;</span>
                   Unlimited word translations
                 </li>
                 <li className="flex items-start gap-3">
-                  <span className="text-[#00D4FF] mt-1">&#10003;</span>
+                  <span className="text-[#0891b2] mt-1">&#10003;</span>
                   Unlimited saved vocabulary
                 </li>
                 <li className="flex items-start gap-3">
-                  <span className="text-[#00D4FF] mt-1">&#10003;</span>
+                  <span className="text-[#0891b2] mt-1">&#10003;</span>
                   Unlimited text-to-speech
                 </li>
                 <li className="flex items-start gap-3">
-                  <span className="text-[#00D4FF] mt-1">&#10003;</span>
+                  <span className="text-[#0891b2] mt-1">&#10003;</span>
                   No daily limits &mdash; ever
                 </li>
                 <li className="flex items-start gap-3">
-                  <span className="text-[#00D4FF] mt-1">&#10003;</span>
+                  <span className="text-[#0891b2] mt-1">&#10003;</span>
                   Support an indie developer
                 </li>
               </ul>
@@ -496,21 +496,21 @@ export default function DecipherPage() {
       </section>
 
       {/* FAQ */}
-      <section className="py-24 px-6 bg-[#151528]">
+      <section className="py-24 px-6 bg-white text-slate-900">
         <div className="max-w-4xl mx-auto">
-          <p className="text-sm font-medium tracking-[0.2em] text-[#00D4FF] uppercase mb-6">
+          <p className="text-sm font-medium tracking-[0.2em] text-[#0891b2] uppercase mb-6">
             FAQ
           </p>
-          <h2 className="text-3xl md:text-4xl font-light mb-12">
+          <h2 className="text-3xl md:text-4xl font-light mb-12 text-slate-900">
             Common questions
           </h2>
 
           <div className="space-y-8">
             <div>
-              <h3 className="text-lg font-medium mb-2">
+              <h3 className="text-lg font-medium mb-2 text-slate-900">
                 Is Decipher really free?
               </h3>
-              <p className="text-[#8888AA] leading-relaxed">
+              <p className="text-slate-600 leading-relaxed">
                 Yes. The free tier gives you the full Gutenberg library, 30 daily
                 word translations, vocabulary flashcards, and full-page
                 translation. No ads, no subscription. The optional premium
@@ -519,10 +519,10 @@ export default function DecipherPage() {
             </div>
 
             <div>
-              <h3 className="text-lg font-medium mb-2">
+              <h3 className="text-lg font-medium mb-2 text-slate-900">
                 What books are available?
               </h3>
-              <p className="text-[#8888AA] leading-relaxed">
+              <p className="text-slate-600 leading-relaxed">
                 Decipher connects to Project Gutenberg, a library of over 70,000
                 public-domain books. You&apos;ll find classics like Don Quijote,
                 Le Petit Prince, Grimm&apos;s Fairy Tales, and thousands more
@@ -534,10 +534,10 @@ export default function DecipherPage() {
             </div>
 
             <div>
-              <h3 className="text-lg font-medium mb-2">
+              <h3 className="text-lg font-medium mb-2 text-slate-900">
                 Do I need to be good at a language to use this?
               </h3>
-              <p className="text-[#8888AA] leading-relaxed">
+              <p className="text-slate-600 leading-relaxed">
                 No. The full-page translation shows you the meaning of everything
                 on screen. Tap any word you don&apos;t know. Start with short,
                 simple books and work your way up. The first few pages will be
@@ -546,20 +546,20 @@ export default function DecipherPage() {
             </div>
 
             <div>
-              <h3 className="text-lg font-medium mb-2">
+              <h3 className="text-lg font-medium mb-2 text-slate-900">
                 Is it available on iOS?
               </h3>
-              <p className="text-[#8888AA] leading-relaxed">
+              <p className="text-slate-600 leading-relaxed">
                 Decipher is currently available on Android via Google Play.
                 iOS support is being explored for a future release.
               </p>
             </div>
 
             <div>
-              <h3 className="text-lg font-medium mb-2">
+              <h3 className="text-lg font-medium mb-2 text-slate-900">
                 Can I import my own books?
               </h3>
-              <p className="text-[#8888AA] leading-relaxed">
+              <p className="text-slate-600 leading-relaxed">
                 Yes. You can import any DRM-free EPUB file from your device.
                 Tap-to-translate, vocabulary tracking, flashcards, full-page
                 translation, and text-to-speech all work the same way with
@@ -595,7 +595,7 @@ export default function DecipherPage() {
       </section>
 
       {/* Footer */}
-      <footer className="border-t border-white/[0.08] py-12">
+      <footer className="bg-[#1A1A2E] text-[#E8E8F0] border-t border-white/[0.08] py-12">
         <div className="max-w-4xl mx-auto px-6">
           <div className="flex flex-col md:flex-row items-center justify-between gap-6">
             <div className="flex items-center gap-3">

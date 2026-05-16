@@ -12,23 +12,23 @@ export default function OrderlyPage() {
   return (
     <main className="min-h-screen bg-[#0F172A] text-white">
       {/* Nav */}
-      <nav className="fixed top-0 left-0 right-0 z-50 backdrop-blur-md bg-[#0F172A]/85 border-b border-white/[0.08]">
+      <nav className="fixed top-0 left-0 right-0 z-50 backdrop-blur-md bg-white/95 border-b border-slate-200">
         <div className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
           <Link href="/" className="flex items-center gap-3 group">
             <Image src="/logo-transparent.png" alt="Cadmus Lab" width={48} height={48} />
-            <span className="text-white font-light tracking-[0.3em] text-sm uppercase">
+            <span className="text-black font-light tracking-[0.3em] text-sm uppercase">
               Cadmus Lab
             </span>
           </Link>
-          <div className="hidden md:flex items-center gap-8 text-sm text-[#b4b4cc]">
-            <Link href="/" className="hover:text-white transition-colors">
+          <div className="hidden md:flex items-center gap-8 text-sm text-slate-600">
+            <Link href="/" className="hover:text-black transition-colors">
               Home
             </Link>
             <a
               href="https://orderlybar.app"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-[#F59E0B] hover:text-white transition-colors"
+              className="text-[#D97706] hover:text-[#B45309] transition-colors"
             >
               orderlybar.app ↗
             </a>
@@ -36,8 +36,8 @@ export default function OrderlyPage() {
         </div>
       </nav>
 
-      {/* Hero */}
-      <section className="pt-40 pb-24 px-6">
+      {/* Hero — navy */}
+      <section className="pt-40 pb-24 px-6 bg-[#0F172A] text-white">
         <div className="max-w-4xl mx-auto text-center">
           <div className="animate-fade-in-up flex items-center justify-center gap-5 mb-8">
             <Image
@@ -75,16 +75,16 @@ export default function OrderlyPage() {
         </div>
       </section>
 
-      {/* Problem */}
-      <section className="py-24 px-6 bg-[#172033]">
+      {/* Problem — white */}
+      <section className="py-24 px-6 bg-white text-slate-900">
         <div className="max-w-4xl mx-auto">
-          <p className="text-sm font-medium tracking-[0.2em] text-[#F59E0B] uppercase mb-6">
+          <p className="text-sm font-medium tracking-[0.2em] text-[#D97706] uppercase mb-6">
             The Problem
           </p>
-          <h2 className="text-3xl md:text-4xl font-light mb-8">
+          <h2 className="text-3xl md:text-4xl font-light mb-8 text-slate-900">
             Your sales, inventory, and ordering should all be in one place.
           </h2>
-          <div className="space-y-4 text-[#b4b4cc] text-lg leading-relaxed">
+          <div className="space-y-4 text-slate-600 text-lg leading-relaxed">
             <p>
               Orders scattered across spreadsheets, group texts, and email chains.
               Sales data in one system, inventory in another — or in someone&apos;s head.
@@ -98,8 +98,8 @@ export default function OrderlyPage() {
         </div>
       </section>
 
-      {/* Features */}
-      <section className="py-24 px-6">
+      {/* Features — navy */}
+      <section className="py-24 px-6 bg-[#0F172A] text-white">
         <div className="max-w-4xl mx-auto">
           <p className="text-sm font-medium tracking-[0.2em] text-[#F59E0B] uppercase mb-6">
             What We Build
@@ -109,7 +109,6 @@ export default function OrderlyPage() {
           </h2>
 
           <div className="grid md:grid-cols-2 gap-8">
-            {/* Feature Cards */}
             <div className="border border-white/[0.08] rounded-lg p-8 hover:border-[#F59E0B]/40 transition-colors">
               <h3 className="text-xl font-medium mb-3">Streamlined Ordering</h3>
               <p className="text-[#b4b4cc] leading-relaxed">
@@ -162,16 +161,16 @@ export default function OrderlyPage() {
         </div>
       </section>
 
-      {/* Integration */}
-      <section className="py-24 px-6 bg-[#172033]">
+      {/* Integration — white */}
+      <section className="py-24 px-6 bg-white text-slate-900">
         <div className="max-w-4xl mx-auto text-center">
-          <p className="text-sm font-medium tracking-[0.2em] text-[#F59E0B] uppercase mb-6">
+          <p className="text-sm font-medium tracking-[0.2em] text-[#D97706] uppercase mb-6">
             Everything Connected
           </p>
-          <h2 className="text-3xl md:text-4xl font-light mb-8">
+          <h2 className="text-3xl md:text-4xl font-light mb-8 text-slate-900">
             Sales. Inventory. Orders. One system.
           </h2>
-          <div className="space-y-4 text-[#b4b4cc] text-lg leading-relaxed max-w-2xl mx-auto">
+          <div className="space-y-4 text-slate-600 text-lg leading-relaxed max-w-2xl mx-auto">
             <p>
               When your sales data, inventory counts, and ordering all live in the
               same place, you can finally see the full picture — what&apos;s moving,
@@ -185,8 +184,8 @@ export default function OrderlyPage() {
         </div>
       </section>
 
-      {/* How It Works */}
-      <section className="py-24 px-6">
+      {/* How It Works — navy */}
+      <section className="py-24 px-6 bg-[#0F172A] text-white">
         <div className="max-w-4xl mx-auto">
           <p className="text-sm font-medium tracking-[0.2em] text-[#F59E0B] uppercase mb-6">
             Custom Built
@@ -232,13 +231,13 @@ export default function OrderlyPage() {
         </div>
       </section>
 
-      {/* CTA */}
-      <section className="py-32 px-6 bg-[#172033]">
+      {/* CTA — white */}
+      <section className="py-32 px-6 bg-white text-slate-900">
         <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-3xl md:text-4xl font-light mb-6">
+          <h2 className="text-3xl md:text-4xl font-light mb-6 text-slate-900">
             Let&apos;s talk about what your operation needs.
           </h2>
-          <p className="text-[#b4b4cc] text-lg mb-10 max-w-2xl mx-auto">
+          <p className="text-slate-600 text-lg mb-10 max-w-2xl mx-auto">
             One location or twenty — we&apos;ll look at your current setup and build
             a system that brings your sales, inventory, and ordering together.
           </p>
@@ -253,7 +252,7 @@ export default function OrderlyPage() {
             </a>
             <a
               href="mailto:danny@cadmuslab.ai?subject=Orderly%20—%20Let's%20Talk"
-              className="inline-flex items-center justify-center px-8 py-3 border border-white/30 hover:border-white/60 hover:bg-white/[0.04] text-white font-medium tracking-wide uppercase text-sm transition-colors rounded"
+              className="inline-flex items-center justify-center px-8 py-3 border border-slate-300 hover:border-slate-500 hover:bg-slate-50 text-slate-700 font-medium tracking-wide uppercase text-sm transition-colors rounded"
             >
               Email Danny
             </a>
@@ -261,8 +260,8 @@ export default function OrderlyPage() {
         </div>
       </section>
 
-      {/* Footer */}
-      <footer className="border-t border-white/[0.08] py-12">
+      {/* Footer — navy */}
+      <footer className="bg-[#0F172A] text-white border-t border-white/[0.08] py-12">
         <div className="max-w-4xl mx-auto px-6">
           <div className="flex flex-col md:flex-row items-center justify-between gap-6">
             <div className="flex items-center gap-3">
@@ -273,12 +272,12 @@ export default function OrderlyPage() {
                 height={32}
                 className="rounded-md opacity-50"
               />
-              <span className="text-[#b4b4cc]/50 text-sm tracking-[0.15em]">
+              <span className="text-[#b4b4cc]/60 text-sm tracking-[0.15em]">
                 Orderly — by Cadmus Lab AI LLC
               </span>
             </div>
 
-            <div className="flex items-center gap-6 text-sm text-[#b4b4cc]/50">
+            <div className="flex items-center gap-6 text-sm text-[#b4b4cc]/60">
               <Link href="/" className="hover:text-[#F59E0B] transition-colors">
                 Cadmus Lab
               </Link>
@@ -301,7 +300,7 @@ export default function OrderlyPage() {
             </div>
           </div>
 
-          <p className="text-center text-[#b4b4cc]/20 text-xs mt-8">
+          <p className="text-center text-[#b4b4cc]/30 text-xs mt-8">
             &copy; {new Date().getFullYear()} Cadmus Lab AI LLC. All rights reserved.
           </p>
         </div>
