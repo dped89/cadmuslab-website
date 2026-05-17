@@ -178,6 +178,85 @@ export default function DecipherPage() {
         </div>
       </section>
 
+      {/* What's New in v1.2.0 callout */}
+      <section className="py-20 px-6 bg-[#1A1A2E] border-y border-[#00D4FF]/15">
+        <div className="max-w-4xl mx-auto">
+          <div className="flex items-center gap-3 mb-6">
+            <span className="bg-[#00D4FF] text-[#1A1A2E] text-xs font-bold tracking-wider uppercase px-3 py-1">
+              New in v1.2.0
+            </span>
+            <span className="text-[#8888AA] text-xs font-mono uppercase tracking-wider">
+              Released May 2, 2026
+            </span>
+          </div>
+          <h2 className="text-3xl md:text-4xl font-light mb-4">
+            Our biggest update since launch.
+          </h2>
+          <p className="text-[#8888AA] text-lg mb-10 max-w-2xl">
+            Faster browsing, curated books for learners, and Premium is finally
+            here. If you&apos;ve been waiting on a reason to come back to
+            Decipher, this is it.
+          </p>
+
+          <div className="grid sm:grid-cols-2 gap-5 mb-10">
+            <div className="border border-[#00D4FF]/20 rounded-lg p-5 bg-white/[0.02]">
+              <h3 className="text-white text-base font-medium mb-2">
+                Curated for Learners
+              </h3>
+              <p className="text-[#8888AA] text-sm leading-relaxed">
+                44 hand-picked books across 7 languages, tagged 1&ndash;5 by
+                difficulty. Pick something that&apos;ll actually move the
+                needle.
+              </p>
+            </div>
+            <div className="border border-[#00D4FF]/20 rounded-lg p-5 bg-white/[0.02]">
+              <h3 className="text-white text-base font-medium mb-2">
+                Premium upgrade is live
+              </h3>
+              <p className="text-[#8888AA] text-sm leading-relaxed">
+                $6.99 one-time purchase removes all daily limits forever. No
+                subscription, no recurring charges.
+              </p>
+            </div>
+            <div className="border border-[#00D4FF]/20 rounded-lg p-5 bg-white/[0.02]">
+              <h3 className="text-white text-base font-medium mb-2">
+                Sort by Popular, Newest, or Oldest
+              </h3>
+              <p className="text-[#8888AA] text-sm leading-relaxed">
+                Find what you&apos;re looking for faster across the full
+                Gutenberg library.
+              </p>
+            </div>
+            <div className="border border-[#00D4FF]/20 rounded-lg p-5 bg-white/[0.02]">
+              <h3 className="text-white text-base font-medium mb-2">
+                In-app bug reports &amp; feedback
+              </h3>
+              <p className="text-[#8888AA] text-sm leading-relaxed">
+                Found a bug? Got an idea? Settings &rarr; Support sends it
+                straight to me. No more bouncing out to your email client.
+              </p>
+            </div>
+          </div>
+
+          <div className="flex flex-col sm:flex-row gap-3">
+            <a
+              href="https://play.google.com/store/apps/details?id=com.decipher.reader"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center px-7 py-3 bg-[#00D4FF] text-[#1A1A2E] font-medium tracking-wide uppercase text-sm hover:bg-[#00D4FF]/80 transition-colors"
+            >
+              Update on Google Play
+            </a>
+            <Link
+              href="/decipher/changelog"
+              className="inline-flex items-center justify-center px-7 py-3 border border-[#00D4FF]/30 text-[#E8E8F0] font-medium tracking-wide uppercase text-sm hover:border-[#00D4FF]/60 transition-colors"
+            >
+              Read the full release notes
+            </Link>
+          </div>
+        </div>
+      </section>
+
       {/* Features */}
       <section className="py-24 px-6">
         <div className="max-w-4xl mx-auto">
@@ -201,8 +280,18 @@ export default function DecipherPage() {
               <h3 className="text-xl font-medium mb-3">70,000+ Free Books</h3>
               <p className="text-[#8888AA] leading-relaxed">
                 Browse Project Gutenberg&apos;s entire library. Real literature &mdash;
-                the same books native speakers grew up with. Not dumbed-down
-                textbook passages.
+                the same books native speakers grew up with. Sort by Popular,
+                Newest, or Oldest to find what you&apos;re after fast.
+              </p>
+            </div>
+
+            <div className="border border-white/[0.08] rounded-lg p-8 hover:border-[#00D4FF]/30 transition-colors">
+              <h3 className="text-xl font-medium mb-3">Curated for Learners</h3>
+              <p className="text-[#8888AA] leading-relaxed">
+                Don&apos;t want to start with <em>Don Quijote</em>? Pick from 44
+                hand-picked books across 7 languages, tagged 1&ndash;5 by
+                difficulty. Each includes a short note on why it works for
+                language learners.
               </p>
             </div>
 
@@ -383,9 +472,14 @@ export default function DecipherPage() {
           <h2 className="text-3xl md:text-4xl font-light mb-4 text-slate-900">
             No ads. No subscription. Ever.
           </h2>
-          <p className="text-slate-600 text-lg mb-12">
+          <p className="text-slate-600 text-lg mb-3">
             The free tier has everything you need to start learning. Premium
-            removes all limits with a one-time purchase.
+            removes all daily limits with a single $6.99 purchase &mdash;
+            available now on Google Play, no recurring charges, ever.
+          </p>
+          <p className="text-slate-500 text-sm mb-12">
+            On a previous version with a promo code? Your Premium status
+            carries over &mdash; nothing to do.
           </p>
 
           <div className="grid md:grid-cols-2 gap-8">
@@ -611,7 +705,14 @@ export default function DecipherPage() {
               </span>
             </div>
 
-            <div className="flex items-center gap-6 text-sm text-[#8888AA]/50">
+            <div className="flex items-center gap-5 text-sm text-[#8888AA]/50 flex-wrap justify-center">
+              <Link
+                href="/decipher/changelog"
+                className="hover:text-[#00D4FF] transition-colors"
+              >
+                Changelog
+              </Link>
+              <span className="text-white/10">|</span>
               <Link
                 href="/"
                 className="hover:text-[#00D4FF] transition-colors"
