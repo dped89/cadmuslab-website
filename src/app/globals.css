@@ -448,3 +448,56 @@ body {
   padding: 0;
   border-radius: 0;
 }
+
+
+/* ============================================================
+   Hero star field — three parallax layers + twinkle
+   ============================================================ */
+
+.starfield-layer {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  will-change: transform;
+}
+
+.star {
+  position: absolute;
+  background: #ffffff;
+  border-radius: 50%;
+  margin-left: -1px;
+  margin-top: -1px;
+}
+
+.star--far {
+  width: 1px;
+  height: 1px;
+  opacity: 0.45;
+}
+
+.star--mid {
+  width: 2px;
+  height: 2px;
+  opacity: 0.7;
+}
+
+.star--near {
+  width: 3px;
+  height: 3px;
+  opacity: 0.9;
+  box-shadow: 0 0 4px rgba(255, 255, 255, 0.55);
+}
+
+.star--twinkle {
+  animation: star-twinkle 3.5s ease-in-out infinite;
+}
+
+@keyframes star-twinkle {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(0.3); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .starfield-layer { transform: none !important; }
+  .star--twinkle { animation: none; }
+}
