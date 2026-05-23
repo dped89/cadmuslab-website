@@ -6,10 +6,12 @@ import Newsletter from "@/components/Newsletter";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 import Nav from "@/components/Nav";
+import StarField from "@/components/StarField";
 
 export default function Home() {
   return (
-    <main>
+    <main className="bg-black">
+      <StarField />
       <Nav />
       <Hero />
       <Projects />

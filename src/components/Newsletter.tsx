@@ -1,6 +1,6 @@
 export default function Newsletter() {
   return (
-    <section id="newsletter" className="py-24 md:py-32 bg-black">
+    <section id="newsletter" className="relative z-10 py-24 md:py-32 text-white">
       <div className="max-w-3xl mx-auto px-6 text-center">
         <p className="text-[#64ffda] text-sm font-medium tracking-[0.2em] uppercase mb-6">
           Newsletter

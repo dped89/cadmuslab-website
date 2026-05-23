@@ -2,28 +2,6 @@
 
 import { useEffect, useState } from "react";
 
-// Deterministic star positions (percent-based) so SSR and CSR match.
-// Three layers move at different parallax speeds on scroll.
-const FAR_STARS: Array<[number, number]> = [
-  [5, 8], [12, 15], [22, 6], [31, 18], [42, 11], [53, 7], [64, 14], [75, 9], [86, 16], [94, 5],
-  [3, 28], [15, 35], [25, 25], [37, 38], [48, 30], [60, 36], [71, 27], [82, 33], [91, 25],
-  [8, 50], [19, 58], [29, 52], [40, 60], [51, 55], [63, 51], [73, 57], [84, 53], [95, 60],
-  [7, 75], [18, 82], [28, 78], [39, 85], [50, 80], [61, 77], [72, 83], [83, 79], [93, 88],
-];
-
-const MID_STARS: Array<[number, number]> = [
-  [10, 12], [25, 22], [40, 8], [55, 18], [70, 14], [85, 20],
-  [15, 40], [32, 48], [48, 42], [65, 50], [80, 44],
-  [20, 65], [35, 72], [50, 68], [68, 75], [82, 70],
-  [12, 90], [45, 95], [78, 92],
-];
-
-const NEAR_STARS: Array<[number, number]> = [
-  [18, 20], [38, 15], [62, 25], [82, 18],
-  [22, 55], [52, 50], [78, 60],
-  [30, 85], [55, 80], [75, 88],
-];
-
 export default function Hero() {
   const [play, setPlay] = useState(false);
   const [scrollY, setScrollY] = useState(0);
@@ -54,69 +32,15 @@ export default function Hero() {
 
   const on = play || reduced;
 
-  // Parallax + fade math — disabled entirely under prefers-reduced-motion.
-  const farY = reduced ? 0 : scrollY * 0.15;
-  const midY = reduced ? 0 : scrollY * 0.35;
-  const nearY = reduced ? 0 : scrollY * 0.6;
+  // Scroll-fade math for the logo + content. Stars live at page level
+  // in <StarField /> and persist throughout the page; only the hero
+  // content fades as you scroll past it.
   const fadeProgress = reduced ? 0 : Math.min(1, scrollY / 500);
   const heroOpacity = 1 - fadeProgress;
   const heroTranslate = reduced ? 0 : fadeProgress * -40;
 
   return (
-    <section className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden bg-black">
-      {/* Star field — three parallax layers (far, mid, near) */}
-      <div
-        className="starfield-layer"
-        style={{ transform: `translate3d(0, ${farY}px, 0)` }}
-        aria-hidden
-      >
-        {FAR_STARS.map(([x, y], i) => (
-          <span
-            key={`far-${i}`}
-            className={`star star--far ${i % 5 === 0 ? "star--twinkle" : ""}`}
-            style={{
-              left: `${x}%`,
-              top: `${y}%`,
-              animationDelay: i % 5 === 0 ? `${(i * 0.7) % 3}s` : undefined,
-            }}
-          />
-        ))}
-      </div>
-      <div
-        className="starfield-layer"
-        style={{ transform: `translate3d(0, ${midY}px, 0)` }}
-        aria-hidden
-      >
-        {MID_STARS.map(([x, y], i) => (
-          <span
-            key={`mid-${i}`}
-            className={`star star--mid ${i % 4 === 1 ? "star--twinkle" : ""}`}
-            style={{
-              left: `${x}%`,
-              top: `${y}%`,
-              animationDelay: i % 4 === 1 ? `${(i * 0.9) % 3.5}s` : undefined,
-            }}
-          />
-        ))}
-      </div>
-      <div
-        className="starfield-layer"
-        style={{ transform: `translate3d(0, ${nearY}px, 0)` }}
-        aria-hidden
-      >
-        {NEAR_STARS.map(([x, y], i) => (
-          <span
-            key={`near-${i}`}
-            className={`star star--near ${i % 3 === 0 ? "star--twinkle" : ""}`}
-            style={{
-              left: `${x}%`,
-              top: `${y}%`,
-              animationDelay: i % 3 === 0 ? `${(i * 1.1) % 4}s` : undefined,
-            }}
-          />
-        ))}
-      </div>
-
+    <section className="relative z-10 min-h-screen flex flex-col items-center justify-center overflow-hidden">
       {/* one-shot glow pulse behind the logo */}
       <div
         aria-hidden
@@ -151,7 +75,7 @@ export default function Hero() {
         />
 
         <h1
-          className={`hero-reveal ${on ? "hero-reveal--on" : ""} text-5xl md:text-7xl font-extralight tracking-[0.15em] uppercase mb-6`}
+          className={`hero-reveal ${on ? "hero-reveal--on" : ""} text-5xl md:text-7xl font-extralight tracking-[0.15em] uppercase mb-6 text-white`}
           style={{ animationDelay: "0.55s" }}
         >
           Cadmus Lab
