@@ -1,7 +1,10 @@
+import NebulaBand from "./NebulaBand";
+
 export default function About() {
   return (
-    <section id="about" className="relative z-10 py-24 md:py-32 text-white">
-      <div className="max-w-4xl mx-auto px-6">
+    <section id="about" className="relative z-10 py-24 md:py-32 text-white overflow-hidden">
+      <NebulaBand tint="teal" position="top" />
+      <div className="relative max-w-4xl mx-auto px-6">
         <div className="border-t border-white/[0.08] pt-16">
           <p className="text-[#64ffda] text-sm font-medium tracking-[0.2em] uppercase mb-6">
             About

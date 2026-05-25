@@ -1,9 +1,11 @@
 import Image from "next/image";
+import NebulaBand from "./NebulaBand";
 
 export default function Footer() {
   return (
-    <footer className="relative z-10 text-white border-t border-white/[0.08] py-12">
-      <div className="max-w-4xl mx-auto px-6">
+    <footer className="relative z-10 text-white border-t border-white/[0.08] py-12 overflow-hidden">
+      <NebulaBand tint="teal" position="top" />
+      <div className="relative max-w-4xl mx-auto px-6">
         <div className="flex flex-col md:flex-row items-center justify-between gap-6">
           <div className="flex items-center gap-3">
             <Image
