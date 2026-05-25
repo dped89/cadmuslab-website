@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+import NebulaBand from "@/components/NebulaBand";
 
 export const metadata: Metadata = {
   title: "Orderly — Custom Beverage Management Software | Cadmus Lab",
@@ -12,23 +13,23 @@ export default function OrderlyPage() {
   return (
     <main className="min-h-screen bg-[#0F172A] text-white">
       {/* Nav */}
-      <nav className="fixed top-0 left-0 right-0 z-50 backdrop-blur-md bg-white/95 border-b border-slate-200">
+      <nav className="fixed top-0 left-0 right-0 z-50 backdrop-blur-md bg-black/70 border-b border-white/[0.08]">
         <div className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
           <Link href="/" className="flex items-center gap-3 group">
             <Image src="/logo-transparent.png" alt="Cadmus Lab" width={48} height={48} />
-            <span className="text-black font-light tracking-[0.3em] text-sm uppercase">
+            <span className="text-white font-light tracking-[0.3em] text-sm uppercase">
               Cadmus Lab
             </span>
           </Link>
-          <div className="hidden md:flex items-center gap-8 text-sm text-slate-600">
-            <Link href="/" className="hover:text-black transition-colors">
+          <div className="hidden md:flex items-center gap-8 text-sm text-[#b4b4cc]">
+            <Link href="/" className="hover:text-white transition-colors">
               Home
             </Link>
             <a
               href="https://orderlybar.app"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-[#D97706] hover:text-[#B45309] transition-colors"
+              className="text-[#F59E0B] hover:text-white transition-colors"
             >
               orderlybar.app ↗
             </a>
@@ -99,8 +100,9 @@ export default function OrderlyPage() {
       </section>
 
       {/* Features — navy */}
-      <section className="py-24 px-6 bg-[#0F172A] text-white">
-        <div className="max-w-4xl mx-auto">
+      <section className="relative py-24 px-6 bg-[#0F172A] text-white overflow-hidden">
+        <NebulaBand tint="amber" position="top" />
+        <div className="relative max-w-4xl mx-auto">
           <p className="text-sm font-medium tracking-[0.2em] text-[#F59E0B] uppercase mb-6">
             What We Build
           </p>
@@ -185,8 +187,9 @@ export default function OrderlyPage() {
       </section>
 
       {/* How It Works — navy */}
-      <section className="py-24 px-6 bg-[#0F172A] text-white">
-        <div className="max-w-4xl mx-auto">
+      <section className="relative py-24 px-6 bg-[#0F172A] text-white overflow-hidden">
+        <NebulaBand tint="amber" position="top" />
+        <div className="relative max-w-4xl mx-auto">
           <p className="text-sm font-medium tracking-[0.2em] text-[#F59E0B] uppercase mb-6">
             Custom Built
           </p>
@@ -261,8 +264,9 @@ export default function OrderlyPage() {
       </section>
 
       {/* Footer — navy */}
-      <footer className="bg-[#0F172A] text-white border-t border-white/[0.08] py-12">
-        <div className="max-w-4xl mx-auto px-6">
+      <footer className="relative bg-[#0F172A] text-white border-t border-white/[0.08] py-12 overflow-hidden">
+        <NebulaBand tint="amber" position="top" />
+        <div className="relative max-w-4xl mx-auto px-6">
           <div className="flex flex-col md:flex-row items-center justify-between gap-6">
             <div className="flex items-center gap-3">
               <Image

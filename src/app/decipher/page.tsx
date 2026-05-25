@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+import NebulaBand from "@/components/NebulaBand";
 
 export const metadata: Metadata = {
   title: "Decipher — Read Real Books in Any Language | Cadmus Lab",
@@ -46,7 +47,7 @@ export default function DecipherPage() {
   return (
     <main className="min-h-screen bg-[#1A1A2E] text-[#E8E8F0]">
       {/* Nav */}
-      <nav className="fixed top-0 left-0 right-0 z-50 backdrop-blur-md bg-white/95 border-b border-slate-200">
+      <nav className="fixed top-0 left-0 right-0 z-50 backdrop-blur-md bg-black/70 border-b border-white/[0.08]">
         <div className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
           <Link href="/" className="flex items-center gap-3 group">
             <Image
@@ -55,20 +56,20 @@ export default function DecipherPage() {
               width={48}
               height={48}
             />
-            <span className="text-black font-light tracking-[0.3em] text-sm uppercase">
+            <span className="text-white font-light tracking-[0.3em] text-sm uppercase">
               Cadmus Lab
             </span>
           </Link>
-          <div className="hidden md:flex items-center gap-8 text-sm text-slate-600">
+          <div className="hidden md:flex items-center gap-8 text-sm text-[#8888AA]">
             <Link
               href="/"
-              className="hover:text-black transition-colors"
+              className="hover:text-white transition-colors"
             >
               Home
             </Link>
             <a
               href="#download"
-              className="text-[#0891b2] hover:text-[#0e7490] transition-colors"
+              className="text-[#00D4FF] hover:text-white transition-colors"
             >
               Download
             </a>
@@ -179,8 +180,9 @@ export default function DecipherPage() {
       </section>
 
       {/* What's New in v1.2.0 callout */}
-      <section className="py-20 px-6 bg-[#1A1A2E] border-y border-[#00D4FF]/15">
-        <div className="max-w-4xl mx-auto">
+      <section className="relative py-20 px-6 bg-[#1A1A2E] border-y border-[#00D4FF]/15 overflow-hidden">
+        <NebulaBand tint="cyan" position="top" />
+        <div className="relative max-w-4xl mx-auto">
           <div className="flex items-center gap-3 mb-6">
             <span className="bg-[#00D4FF] text-[#1A1A2E] text-xs font-bold tracking-wider uppercase px-3 py-1">
               New in v1.2.0
@@ -554,8 +556,9 @@ export default function DecipherPage() {
       </section>
 
       {/* Newsletter / Substack */}
-      <section className="py-24 px-6">
-        <div className="max-w-4xl mx-auto text-center">
+      <section className="relative py-24 px-6 overflow-hidden">
+        <NebulaBand tint="cyan" position="top" />
+        <div className="relative max-w-4xl mx-auto text-center">
           <p className="text-sm font-medium tracking-[0.2em] text-[#00D4FF] uppercase mb-6">
             Stay in the Loop
           </p>
@@ -665,8 +668,9 @@ export default function DecipherPage() {
       </section>
 
       {/* Download CTA */}
-      <section id="download" className="py-32 px-6">
-        <div className="max-w-4xl mx-auto text-center">
+      <section id="download" className="relative py-32 px-6 overflow-hidden">
+        <NebulaBand tint="cyan" position="top" />
+        <div className="relative max-w-4xl mx-auto text-center">
           <h2 className="text-3xl md:text-4xl font-light mb-6">
             Start reading in a new language today.
           </h2>
