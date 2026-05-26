@@ -18,9 +18,13 @@ export default function SmoothScroll() {
     if (reduced) return;
 
     const lenis = new Lenis({
-      duration: 1.1,
-      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+      // Lerp-based interpolation: actual scroll position continuously
+      // chases the target each frame, so consecutive wheel ticks blend
+      // into one smooth flow instead of each one triggering a discrete
+      // duration-based animation (which reads as "chop chop chop").
+      lerp: 0.085,
       smoothWheel: true,
+      wheelMultiplier: 0.9,
       // Touch devices stay on native scroll — virtualized touch scroll
       // feels worse than the OS implementation on mobile.
       syncTouch: false,
