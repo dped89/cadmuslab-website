@@ -22,7 +22,7 @@ export default function SmoothScroll() {
       // chases the target each frame, so consecutive wheel ticks blend
       // into one smooth flow instead of each one triggering a discrete
       // duration-based animation (which reads as "chop chop chop").
-      lerp: 0.085,
+      lerp: 0.07,
       smoothWheel: true,
       wheelMultiplier: 0.9,
       // Touch devices stay on native scroll — virtualized touch scroll
