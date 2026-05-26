@@ -77,7 +77,7 @@ export default function OrderlyPage() {
       </section>
 
       {/* Problem — white */}
-      <section className="py-24 px-6 bg-white text-slate-900">
+      <section className="section-top-fade py-24 px-6 bg-white text-slate-900">
         <div className="max-w-4xl mx-auto">
           <p className="text-sm font-medium tracking-[0.2em] text-[#D97706] uppercase mb-6">
             The Problem
@@ -164,7 +164,7 @@ export default function OrderlyPage() {
       </section>
 
       {/* Integration — white */}
-      <section className="py-24 px-6 bg-white text-slate-900">
+      <section className="section-top-fade py-24 px-6 bg-white text-slate-900">
         <div className="max-w-4xl mx-auto text-center">
           <p className="text-sm font-medium tracking-[0.2em] text-[#D97706] uppercase mb-6">
             Everything Connected
@@ -235,7 +235,7 @@ export default function OrderlyPage() {
       </section>
 
       {/* CTA — white */}
-      <section className="py-32 px-6 bg-white text-slate-900">
+      <section className="section-top-fade py-32 px-6 bg-white text-slate-900">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-3xl md:text-4xl font-light mb-6 text-slate-900">
             Let&apos;s talk about what your operation needs.

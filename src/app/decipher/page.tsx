@@ -151,7 +151,7 @@ export default function DecipherPage() {
       </section>
 
       {/* Problem — white */}
-      <section className="py-24 px-6 bg-white text-slate-900">
+      <section className="section-top-fade py-24 px-6 bg-white text-slate-900">
         <div className="max-w-4xl mx-auto">
           <p className="text-sm font-medium tracking-[0.2em] text-[#0891b2] uppercase mb-6">
             The Problem
@@ -260,7 +260,7 @@ export default function DecipherPage() {
       </section>
 
       {/* Features — white */}
-      <section className="py-24 px-6 bg-white text-slate-900">
+      <section className="section-top-fade py-24 px-6 bg-white text-slate-900">
         <div className="max-w-4xl mx-auto">
           <p className="text-sm font-medium tracking-[0.2em] text-[#0891b2] uppercase mb-6">
             Features
@@ -443,7 +443,7 @@ export default function DecipherPage() {
       </section>
 
       {/* Languages — white */}
-      <section className="py-24 px-6 bg-white text-slate-900">
+      <section className="section-top-fade py-24 px-6 bg-white text-slate-900">
         <div className="max-w-4xl mx-auto text-center">
           <p className="text-sm font-medium tracking-[0.2em] text-[#0891b2] uppercase mb-6">
             Languages
@@ -558,7 +558,7 @@ export default function DecipherPage() {
       </section>
 
       {/* Newsletter / Substack — white */}
-      <section className="py-24 px-6 bg-white text-slate-900">
+      <section className="section-top-fade py-24 px-6 bg-white text-slate-900">
         <div className="max-w-4xl mx-auto text-center">
           <p className="text-sm font-medium tracking-[0.2em] text-[#0891b2] uppercase mb-6">
             Stay in the Loop
@@ -670,7 +670,7 @@ export default function DecipherPage() {
       </section>
 
       {/* Download CTA — white */}
-      <section id="download" className="py-32 px-6 bg-white text-slate-900">
+      <section id="download" className="section-top-fade py-32 px-6 bg-white text-slate-900">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-3xl md:text-4xl font-light mb-6 text-slate-900">
             Start reading in a new language today.

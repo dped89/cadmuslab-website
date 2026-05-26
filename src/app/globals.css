@@ -528,3 +528,65 @@ html.lenis body {
 .lenis.lenis-smooth iframe {
   pointer-events: none;
 }
+
+
+/* ============================================================
+   Premium button microinteraction — subtle lift on hover.
+   Targets anchors that already have major button padding patterns
+   (px-6/7/8 + py-3/3.5/4) so we don't have to add a class to every
+   button in the codebase.
+   ============================================================ */
+
+a[class*="px-6"][class*="py-3"],
+a[class*="px-7"][class*="py-3"],
+a[class*="px-7"][class*="py-3.5"],
+a[class*="px-7"][class*="py-4"],
+a[class*="px-8"][class*="py-3"],
+a[class*="px-8"][class*="py-4"] {
+  transition-property: transform, color, background-color, border-color, box-shadow;
+  transition-duration: 200ms;
+  transition-timing-function: ease;
+  will-change: transform;
+}
+
+a[class*="px-6"][class*="py-3"]:hover,
+a[class*="px-7"][class*="py-3"]:hover,
+a[class*="px-7"][class*="py-3.5"]:hover,
+a[class*="px-7"][class*="py-4"]:hover,
+a[class*="px-8"][class*="py-3"]:hover,
+a[class*="px-8"][class*="py-4"]:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 12px 28px -10px rgba(0, 0, 0, 0.35);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  a[class*="px-6"]:hover,
+  a[class*="px-7"]:hover,
+  a[class*="px-8"]:hover {
+    transform: none !important;
+  }
+}
+
+
+/* ============================================================
+   Section top fade — soft inset shadow at the top of white
+   sections so the transition from dark to white reads as a
+   gentle gradient instead of a hard cut. Mirrors what NebulaBand
+   does on the dark-section side.
+   ============================================================ */
+
+section.section-top-fade {
+  position: relative;
+}
+
+section.section-top-fade::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4rem;
+  pointer-events: none;
+  background: linear-gradient(to bottom, rgba(15, 23, 42, 0.08), transparent);
+  z-index: 0;
+}

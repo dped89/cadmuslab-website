@@ -44,7 +44,7 @@ export default function Projects() {
   return (
     <section
       id="projects"
-      className="relative z-10 py-24 md:py-32 bg-white text-slate-900"
+      className="section-top-fade relative z-10 py-24 md:py-32 bg-white text-slate-900"
       style={{
         // Override CSS vars used by .pcard so cards render light-themed
         // when this section's background is white.

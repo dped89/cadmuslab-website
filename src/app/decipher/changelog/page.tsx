@@ -113,7 +113,7 @@ export default function ChangelogPage() {
       </section>
 
       {/* Releases */}
-      <section className="py-16 md:py-20 px-6 bg-white text-slate-900">
+      <section className="section-top-fade py-16 md:py-20 px-6 bg-white text-slate-900">
         <div className="max-w-3xl mx-auto">
           {releases.length === 0 ? (
             <p className="text-slate-500">No release notes yet. Check back soon.</p>

@@ -136,7 +136,7 @@ export default function Series() {
   const olderCount = Math.max(0, totalEpisodes - 1 - recent.length);
 
   return (
-    <section id="series" className="relative z-10 py-24 md:py-32 bg-white text-slate-900">
+    <section id="series" className="section-top-fade relative z-10 py-24 md:py-32 bg-white text-slate-900">
       <div className="max-w-4xl mx-auto px-6">
         <p className="text-[#0d9488] text-sm font-medium tracking-[0.2em] uppercase mb-6">
           Weekly Videos
