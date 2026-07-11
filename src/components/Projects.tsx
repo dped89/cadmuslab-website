@@ -17,14 +17,14 @@ type Project = {
 
 const projects: Project[] = [
   {
-    name: "Orderly",
+    name: "Ordvark",
     subtitle: "Beverage Order Management",
     description:
       "Custom-built management system for multi-location bars and restaurants. Integrates sales, inventory, and ordering into one system with approval workflows, cost optimization, and role-based access.",
     tech: ["React", "Express", "PostgreSQL"],
     status: "Live",
-    href: "/orderly",
-    slug: "orderly",
+    href: "/ordvark",
+    slug: "ordvark",
     waitlistUrl: null,
   },
   {
