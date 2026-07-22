@@ -60,7 +60,7 @@ export default function Hero() {
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
           src="/logo-transparent.png"
-          alt="Cadmus Lab"
+          alt="Halnos"
           className={`hero-logo ${on ? "hero-logo--on" : ""}`}
           style={{
             width: 375,
@@ -78,7 +78,7 @@ export default function Hero() {
           className={`hero-reveal ${on ? "hero-reveal--on" : ""} text-5xl md:text-7xl font-extralight tracking-[0.15em] uppercase mb-6 text-white`}
           style={{ animationDelay: "0.55s" }}
         >
-          Cadmus Lab
+          Halnos
         </h1>
 
         <p
@@ -107,7 +107,7 @@ export default function Hero() {
             See the Projects
           </a>
           <a
-            href="https://youtube.com/@CadmusLab"
+            href="https://youtube.com/@Halnos"
             target="_blank"
             rel="noopener noreferrer"
             className="px-8 py-3 border border-white/20 text-white font-medium tracking-wide uppercase text-sm hover:border-[#64ffda] hover:text-[#64ffda] transition-colors"

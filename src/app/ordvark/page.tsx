@@ -4,9 +4,9 @@ import Link from "next/link";
 import NebulaBand from "@/components/NebulaBand";
 
 export const metadata: Metadata = {
-  title: "Ordvark — Custom Beverage Management Software | Cadmus Lab",
+  title: "Ordvark — Custom Beverage Management Software | Halnos",
   description:
-    "Custom beverage management software — sales, inventory, and ordering integrated into one system. Built for any size operation by Cadmus Lab.",
+    "Custom beverage management software — sales, inventory, and ordering integrated into one system. Built for any size operation by Halnos.",
 };
 
 export default function OrdvarkPage() {
@@ -16,9 +16,9 @@ export default function OrdvarkPage() {
       <nav className="fixed top-0 left-0 right-0 z-50 backdrop-blur-md bg-black/70 border-b border-white/[0.08]">
         <div className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
           <Link href="/" className="flex items-center gap-3 group">
-            <Image src="/logo-transparent.png" alt="Cadmus Lab" width={48} height={48} />
+            <Image src="/logo-transparent.png" alt="Halnos" width={48} height={48} />
             <span className="text-white font-light tracking-[0.3em] text-sm uppercase">
-              Cadmus Lab
+              Halnos
             </span>
           </Link>
           <div className="hidden md:flex items-center gap-8 text-sm text-[#b4b4cc]">
@@ -277,13 +277,13 @@ export default function OrdvarkPage() {
                 className="rounded-md opacity-50"
               />
               <span className="text-[#b4b4cc]/60 text-sm tracking-[0.15em]">
-                Ordvark — by Cadmus Lab LLC
+                Ordvark — by Halnos
               </span>
             </div>
 
             <div className="flex items-center gap-6 text-sm text-[#b4b4cc]/60">
               <Link href="/" className="hover:text-[#F59E0B] transition-colors">
-                Cadmus Lab
+                Halnos
               </Link>
               <span className="text-white/10">|</span>
               <a
@@ -305,7 +305,7 @@ export default function OrdvarkPage() {
           </div>
 
           <p className="text-center text-[#b4b4cc]/30 text-xs mt-8">
-            &copy; {new Date().getFullYear()} Cadmus Lab LLC. All rights reserved.
+            &copy; {new Date().getFullYear()} Halnos. All rights reserved.
           </p>
         </div>
       </footer>

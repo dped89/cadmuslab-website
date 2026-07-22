@@ -27,7 +27,7 @@ const fallbackEpisodes: Episode[] = [
 function watchUrl(videoId: string) {
   return videoId
     ? `https://www.youtube.com/watch?v=${videoId}&list=${PLAYLIST_ID}`
-    : `https://youtube.com/@CadmusLab`;
+    : `https://youtube.com/@Halnos`;
 }
 
 function thumbUrl(videoId: string) {
@@ -143,7 +143,7 @@ export default function Series() {
         </p>
 
         <h2 className="text-3xl md:text-4xl font-light mb-4 text-slate-900">
-          New from Cadmus Lab.
+          New from Halnos.
         </h2>
 
         <p className="text-slate-600 text-lg mb-12 max-w-2xl">
@@ -188,7 +188,7 @@ export default function Series() {
                 {latest.title}
               </h3>
               <p className="text-slate-600 text-sm leading-relaxed mb-5">
-                Hot off the press. The newest long-form video from Cadmus Lab.
+                Hot off the press. The newest long-form video from Halnos.
               </p>
               <span className="self-start bg-[#0d9488] text-white font-medium text-[13px] tracking-[0.12em] uppercase px-6 py-3 transition-colors group-hover:bg-[#0f766e] rounded">
                 Watch the latest

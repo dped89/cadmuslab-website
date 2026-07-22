@@ -4,7 +4,7 @@ import Link from "next/link";
 import NebulaBand from "@/components/NebulaBand";
 
 export const metadata: Metadata = {
-  title: "Decipher — Read Real Books in Any Language | Cadmus Lab",
+  title: "Decipher — Read Real Books in Any Language | Halnos",
   description:
     "A free language-learning e-reader powered by Project Gutenberg. Tap any word to translate. Track your vocabulary. Read real books in 11 languages.",
   keywords: [
@@ -23,8 +23,8 @@ export const metadata: Metadata = {
     title: "Decipher — Read Real Books in Any Language",
     description:
       "A free language-learning e-reader. Tap any word to translate. 70,000+ free books in 11 languages.",
-    url: "https://cadmuslab.ai/decipher",
-    siteName: "Cadmus Lab",
+    url: "https://halnos.ai/decipher",
+    siteName: "Halnos",
     type: "website",
   },
 };
@@ -52,12 +52,12 @@ export default function DecipherPage() {
           <Link href="/" className="flex items-center gap-3 group">
             <Image
               src="/logo-transparent.png"
-              alt="Cadmus Lab"
+              alt="Halnos"
               width={48}
               height={48}
             />
             <span className="text-white font-light tracking-[0.3em] text-sm uppercase">
-              Cadmus Lab
+              Halnos
             </span>
           </Link>
           <div className="hidden md:flex items-center gap-8 text-sm text-[#8888AA]">
@@ -569,7 +569,7 @@ export default function DecipherPage() {
           <p className="text-slate-600 text-lg mb-8 max-w-2xl mx-auto">
             50 of the best free books for learning Spanish, French, German,
             Italian, Portuguese, and more &mdash; curated by difficulty level
-            with Gutenberg links. Subscribe to the Cadmus Lab newsletter and
+            with Gutenberg links. Subscribe to the Halnos newsletter and
             it&apos;s yours.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
@@ -706,7 +706,7 @@ export default function DecipherPage() {
                 className="rounded-md opacity-50"
               />
               <span className="text-[#8888AA]/50 text-sm tracking-[0.15em]">
-                Decipher &mdash; by Cadmus Lab AI LLC
+                Decipher &mdash; by Halnos
               </span>
             </div>
 
@@ -722,11 +722,11 @@ export default function DecipherPage() {
                 href="/"
                 className="hover:text-[#00D4FF] transition-colors"
               >
-                Cadmus Lab
+                Halnos
               </Link>
               <span className="text-white/10">|</span>
               <a
-                href="https://youtube.com/@CadmusLab"
+                href="https://youtube.com/@Halnos"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="hover:text-[#00D4FF] transition-colors"
@@ -735,7 +735,7 @@ export default function DecipherPage() {
               </a>
               <span className="text-white/10">|</span>
               <a
-                href="mailto:danny@cadmuslab.ai"
+                href="mailto:danny@halnos.ai"
                 className="hover:text-[#00D4FF] transition-colors"
               >
                 Contact
@@ -744,7 +744,7 @@ export default function DecipherPage() {
           </div>
 
           <p className="text-center text-[#8888AA]/20 text-xs mt-8">
-            &copy; {new Date().getFullYear()} Cadmus Lab AI LLC. Digital
+            &copy; {new Date().getFullYear()} Halnos. Digital
             solutions designed with the real world in mind.
           </p>
         </div>

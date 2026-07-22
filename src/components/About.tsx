@@ -38,7 +38,7 @@ export default function About() {
             </div>
             <div className="space-y-6">
               <p>
-                Cadmus Lab exists for people like us — career changers, curious
+                Halnos exists for people like us — career changers, curious
                 professionals, entrepreneurs, and anyone who sees a problem
                 worth solving. Your unique perspective is what makes your
                 solutions valuable.
@@ -51,7 +51,7 @@ export default function About() {
               </p>
               <p className="text-white font-medium">
                 We&apos;re living through the personal computer moment of our
-                generation. Cadmus Lab is here to make sure you&apos;re part of it —
+                generation. Halnos is here to make sure you&apos;re part of it —
                 whoever you are, wherever you&apos;re coming from.
               </p>
             </div>

@@ -72,7 +72,7 @@ export default function Courses() {
             Get in early.
           </h3>
           <p className="text-[#b4b4cc] max-w-xl mx-auto mb-2">
-            Join the Cadmus Lab community for{" "}
+            Join the Halnos community for{" "}
             <span className="text-white font-medium">$9.99/month</span> and get
             exclusive content, early access to videos, monthly live sessions,
             and discounts on every course.

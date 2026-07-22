@@ -6,7 +6,7 @@ import Link from "next/link";
 import { marked } from "marked";
 
 export const metadata: Metadata = {
-  title: "Decipher Changelog — What's New | Cadmus Lab",
+  title: "Decipher Changelog — What's New | Halnos",
   description:
     "Every Decipher release, in reverse chronological order. New features, bug fixes, and what's coming next.",
 };
@@ -68,9 +68,9 @@ export default function ChangelogPage() {
       <nav className="fixed top-0 left-0 right-0 z-50 backdrop-blur-md bg-white/95 border-b border-slate-200">
         <div className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
           <Link href="/" className="flex items-center gap-3 group">
-            <Image src="/logo-transparent.png" alt="Cadmus Lab" width={48} height={48} />
+            <Image src="/logo-transparent.png" alt="Halnos" width={48} height={48} />
             <span className="text-black font-light tracking-[0.3em] text-sm uppercase">
-              Cadmus Lab
+              Halnos
             </span>
           </Link>
           <div className="hidden md:flex items-center gap-8 text-sm text-slate-600">
@@ -153,7 +153,7 @@ export default function ChangelogPage() {
             Get update notes in your inbox.
           </h2>
           <p className="text-[#8888AA] text-lg mb-10">
-            Subscribe to the Cadmus Lab newsletter and never miss a Decipher
+            Subscribe to the Halnos newsletter and never miss a Decipher
             release. No spam, just what shipped and what&apos;s next.
           </p>
           <a
@@ -180,7 +180,7 @@ export default function ChangelogPage() {
                 className="rounded-md opacity-50"
               />
               <span className="text-[#8888AA]/50 text-sm tracking-[0.15em]">
-                Decipher &mdash; by Cadmus Lab AI LLC
+                Decipher &mdash; by Halnos
               </span>
             </div>
             <div className="flex items-center gap-6 text-sm text-[#8888AA]/50">
@@ -189,11 +189,11 @@ export default function ChangelogPage() {
               </Link>
               <span className="text-white/10">|</span>
               <Link href="/" className="hover:text-[#00D4FF] transition-colors">
-                Cadmus Lab
+                Halnos
               </Link>
               <span className="text-white/10">|</span>
               <a
-                href="mailto:danny@cadmuslab.ai"
+                href="mailto:danny@halnos.ai"
                 className="hover:text-[#00D4FF] transition-colors"
               >
                 Contact
@@ -201,7 +201,7 @@ export default function ChangelogPage() {
             </div>
           </div>
           <p className="text-center text-[#8888AA]/20 text-xs mt-8">
-            &copy; {new Date().getFullYear()} Cadmus Lab AI LLC. Digital
+            &copy; {new Date().getFullYear()} Halnos. Digital
             solutions designed with the real world in mind.
           </p>
         </div>

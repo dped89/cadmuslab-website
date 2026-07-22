@@ -1,5 +1,5 @@
 interface NebulaBandProps {
-  /** Tint color — defaults to the Cadmus Lab teal. */
+  /** Tint color — defaults to the Halnos teal. */
   tint?: "teal" | "violet" | "amber" | "cyan";
   /** Position: "top" glows downward into the section,
    * "bottom" glows upward. */

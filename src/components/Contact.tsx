@@ -16,7 +16,7 @@ export default function Contact() {
         </p>
 
         <a
-          href="mailto:danny@cadmuslab.ai?subject=Let's%20Talk"
+          href="mailto:danny@halnos.ai?subject=Let's%20Talk"
           className="inline-block px-8 py-3 bg-black text-white font-medium tracking-wide uppercase text-sm hover:bg-[#0d9488] transition-colors rounded"
         >
           Contact Danny

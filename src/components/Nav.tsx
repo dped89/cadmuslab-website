@@ -7,13 +7,13 @@ export default function Nav() {
         <a href="#" className="flex items-center gap-3 group">
           <Image
             src="/logo-transparent.png"
-            alt="Cadmus Lab"
+            alt="Halnos"
             width={48}
             height={48}
             className=""
           />
           <span className="text-white font-light tracking-[0.3em] text-sm uppercase">
-            Cadmus Lab
+            Halnos
           </span>
         </a>
 

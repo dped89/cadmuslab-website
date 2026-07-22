@@ -10,19 +10,19 @@ export default function Footer() {
           <div className="flex items-center gap-3">
             <Image
               src="/logo-transparent.png"
-              alt="Cadmus Lab"
+              alt="Halnos"
               width={36}
               height={36}
               className="opacity-50"
             />
             <span className="text-[#b4b4cc]/50 text-sm tracking-[0.2em] uppercase">
-              Cadmus Lab AI LLC
+              Halnos
             </span>
           </div>
 
           <div className="flex items-center gap-6 text-sm text-[#b4b4cc]/50">
             <a
-              href="https://youtube.com/@CadmusLab"
+              href="https://youtube.com/@Halnos"
               target="_blank"
               rel="noopener noreferrer"
               className="hover:text-[#64ffda] transition-colors"
@@ -31,7 +31,7 @@ export default function Footer() {
             </a>
             <span className="text-white/10">|</span>
             <a
-              href="mailto:danny@cadmuslab.ai"
+              href="mailto:danny@halnos.ai"
               className="hover:text-[#64ffda] transition-colors"
             >
               Contact
@@ -40,7 +40,7 @@ export default function Footer() {
         </div>
 
         <p className="text-center text-[#b4b4cc]/20 text-xs mt-8">
-          &copy; {new Date().getFullYear()} Cadmus Lab AI LLC. All rights reserved.
+          &copy; {new Date().getFullYear()} Halnos. All rights reserved.
         </p>
       </div>
     </footer>
